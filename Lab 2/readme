@@ -1,1 +1,32 @@
+Laboratorio 2: Control de versiones
+ Descripción
+En esta actividad configurarás tu sistema de control de versiones con git, el cual servirá para que realices todas tus entregas individuales del semestre.
+
+ Modalidad
+Individual.
+ Objetivos de aprendizaje
+Comprender los principios sobre los que trabajan los sistemas de control de versiones
+Controlar las versiones del trabajo individual por medio de git. Particularmente dominar los comandos clone, add, commit y push.
+ Instrucciones
+Revisa junto con tu profesor la presentación Control de versiones.
+Crea con tu correo del Tec, una cuenta en BitBucket, en GitHub o en GitLab.
+Crea un repositorio remoto y asegúrate de que tu repositorio sea público para que tus compañeros y profesores puedan tener acceso a él.
+Instala y configura git en tu entorno de desarrollo y sincroniza tu repositorio local con tu repositorio remoto.
+Agrega el laboratorio 1 a tu repositorio local, y posteriormente sincroniza tu repositorio local con tu repositorio remoto
+Comparte el enlace y nombre de usuario en el canal de slack #tc2005b_labs, para que se pueda revisar y retroalimentar tu trabajo. Realizar esta acción es indispensable para tener calificación en los laboratorios. No realizarla implica 0 en TODAS las actividades que se entregan por medio del repositorio individual.
+ Recursos
+Control de versiones
+Try github
+How not to be afraid of git anymore
+The Ultimate Git Command Tutorial for Beginners - Everything You Need to Know
+Getting started with Git and GitHub: the complete beginner’s guide
+First Impressions Count - Why Doesn’t Your Github Repo Have a ReadMe File?
+10 Important Git Commands that Every Developer Should Know
+The beginner’s guide to Git & GitHub
+ Especificaciones de entrega
+En el canal de slack #tc2005b_labs
+
+
+
+
 La existencia de este archivo es prueba de la creación correcta del sistema de versiones mediante github.
