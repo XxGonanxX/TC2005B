@@ -162,6 +162,62 @@ const result4 = promedios(matrix);
 boton4.onclick = () => document.write(promedios(matrix));
 document.write(result4)
 
+// La pregunta 5
+
+function Reversa(txt) {
+
+    this.txt = txt;
+
+    this.reversa = function(){
+
+        return this.txt.split("").reversa().join("")
+
+    };
+
+    this.validar = function() {
+
+        return this.txt.length > 0;
+
+    }
+
+}
+
+
+document.write(Reversa(matrix))
+
+// La 6
+
+let Calculadora = {
+    num1: 0,
+    num2: 0,
+    operacion: "",
+  
+    seleccionarOperacion: function() {
+      this.operacion = document.getElementById("operacion").value;
+    },
+  
+    calcular: function() {
+      this.num1 = parseInt(document.getElementById("num1").value);
+      this.num2 = parseInt(document.getElementById("num2").value);
+  
+      switch (this.operacion) {
+        case "suma":
+          resultado = this.num1 + this.num2;
+          break;
+        case "resta":
+          resultado = this.num1 - this.num2;
+          break;
+        case "multiplicacion":
+          resultado = this.num1 * this.num2;
+          break;
+        case "division":
+          resultado = this.num1 / this.num2;
+          break;
+      }
+  
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  };
 
 
 
