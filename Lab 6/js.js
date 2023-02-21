@@ -17,20 +17,20 @@ document.getElementById("Submit").onclick = () => {
     document.write(`
     <!DOCTYPE html>
     <html>
-    <style>
-    div.a{
-        position: absolute;
-        top: 40 px;
-        border: 3px solid blue;
-      }  
-    </style>
       <head>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <!-- Agregar la biblioteca de JavaScript de Bulma -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/js/bulma.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="bulma-tooltip.min.css">
+   
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lab 6 part 1</title>
+        <style>
+            div.a{
+                position: absolute;
+                top: 40 px;
+                border: 3px solid blue;
+            }  
+        </style>
       </head>
       <body>
     
@@ -109,7 +109,6 @@ document.getElementById("Submit").onclick = () => {
             
         </div>
       </section>
-    
       <script src="js1.js">
       </script>
       </body>
