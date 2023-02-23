@@ -15,7 +15,25 @@ for (let item of arreglo) {
 
 console.log("Finalizado!!")
 
-setTimeout(() => {console.log("Ahroa esto sale al final");}, 12000);
+setTimeout(() => {console.log("Ahora esto sale al final");}, 12000);
+
+const http = require('http');
+
+const server = http.createServer((request, response) => {
+
+    console.log(request.url)
+
+    response.setHeader('Content-Type', 'text/html');
+
+    response.write("<h1>Bienvenido al server</h1>")
+    
+    response.write("<h4>Gatitos de noche territory</h4>")
+
+    response.end();
+
+});
+
+server.listen(3000);
 
 
 // Con COMMAND K Y COMMAND C SE COMENTA
