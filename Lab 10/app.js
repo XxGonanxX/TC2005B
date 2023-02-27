@@ -28,7 +28,7 @@ const server = http.createServer((request, response) => {
         response.write('<!DOCTYPE html>');
         response.write('<html>');
         response.write('<head><meta charset="utf-8"></head><body>');
-        response.write("<h1>Lab 9</h1>");
+        response.write("<h1>Lab 10</h1>");
         response.write('<a href="/Pagina2">Avanzar a página 2 siuu</a>');
         response.end();
     } else if (request.url === "/Pagina2" && request.method === "GET") {
