@@ -1,0 +1,21 @@
+{
+  "name": "lab-11",
+  "version": "1.0.0",
+  "description": "Ejemplos del curso TC2005B Construcción de software y toma de decisiones, semestre febrer-junio 2023, salón 2003",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/XxGonanxX/TC2005B.git) "
+  },
+  "keywords": [
+    "node",
+    "tec",
+    "teus",
+    "lab"
+  ],
+  "author": "Alan Patricio González Bernal",
+  "license": "ISC"
+}
