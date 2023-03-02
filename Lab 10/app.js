@@ -1,3 +1,5 @@
+app.use(express.static(path.join(__dirname, 'public')))
+
 console.log("Hola mundo desde node");
 
 const filesystem = require('fs');

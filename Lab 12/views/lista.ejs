@@ -1,0 +1,65 @@
+
+<%- include('includes/head.ejs') %>
+
+
+          <h1 class="title">
+                 Artistas de la Nueva
+
+            </h1>
+
+<% if (NewGen.length > 0) { %>
+    <div class="columns">
+        <% let columns = 0; %>
+        <% for (let artistasNuevos of NewGen) { %>
+            <%columns ++; %>
+            <%if (columns % 4 == 0) { %>
+
+                <div>
+                   
+                <div class="columns">
+            <%} %>
+            <div class="Column">
+            <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="<%= artistasNuevos.imagen %>" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img src="<%= artistasNuevos.imagen %>" alt="Placeholder image">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4"><%= artistasNuevos.nombre %></p>
+                      <p class="subtitle is-6">@<%=artistasNuevos %></p>
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    <%= artistasNuevos.descripcion %> <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a>
+                    <br>
+                    <time datetime="2016-1-1">10:09 AM - 02 MAR 2023</time>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+            <li><%= artistasNuevos %></li>
+            /div>
+        <% } %>
+            </div>
+  
+
+
+
+<% } else { %>
+    <h1>No hay más de la nueva.</h1>
+<% } %>   
+
+
