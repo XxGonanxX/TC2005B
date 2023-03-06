@@ -3,7 +3,6 @@ const express = require('express');
 
 const router = express.Router();
 
-
 const nuevoController = require('../controllers/nuevo.controller');
 
 router.get('/', nuevoController);
