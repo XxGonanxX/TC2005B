@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname,'public')));
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -19,13 +23,18 @@ app.use((request, response, next) => {
     next();
 });
 
+app.use(express.static('public'));
+
+
+
+
 app.use('/hola', (request, response, next) => {
     response.send('Hola desde la ruta /hola');
 });
 
 const nuevoRutas = require('./routes/nuevo.routes');
 
-app.use('/nuevo', nuevoRutas);
+app.use('/nuevo', nuevoRutas, express.static('public'));
 
 app.use((request, response, next) => {
     console.log("Tercer middleware");
