@@ -1,65 +1,53 @@
 
 <%- include('includes/head.ejs') %>
+<%- include ('../models/nuevo.model.js') %>
 
+<h1 class="title">Artistas de la nueva</h1>
 
-          <h1 class="title">
-                 Artistas de la Nueva
+<a href="/nuevo/nuevo" class="button is-link is-rounded">Registrar artista</a>
 
-            </h1>
+<br><br>
 
-<% if (NewGen.length > 0) { %>
+<% if (newGen.length > 0) { %>
     <div class="columns">
         <% let columns = 0; %>
-        <% for (let artistasNuevos of NewGen) { %>
-            <%columns ++; %>
-            <%if (columns % 4 == 0) { %>
-
-                <div>
-                   
-                <div class="columns">
-            <%} %>
-            <div class="Column">
-            <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img src="<%= artistasNuevos.imagen %>" alt="Placeholder image">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-left">
-                      <figure class="image is-48x48">
-                        <img src="<%= artistasNuevos.imagen %>" alt="Placeholder image">
-                      </figure>
-                    </div>
-                    <div class="media-content">
-                      <p class="title is-4"><%= artistasNuevos.nombre %></p>
-                      <p class="subtitle is-6">@<%=artistasNuevos %></p>
-                    </div>
-                  </div>
-              
-                  <div class="content">
-                    <%= artistasNuevos.descripcion %> <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <br>
-                    <time datetime="2016-1-1">10:09 AM - 02 MAR 2023</time>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>
-        </div>
+        <% for (let artistasNuevos of newGen) { %>
+            <% if (columns % 4 == 0) { %>
     </div>
-            <li><%= artistasNuevos %></li>
-            /div>
-        <% } %>
+    <div class="columns">
+            <% } %>
+            <% columns++; %>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="<%= artistasNuevos.imagen %>" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="<%= artistasNuevos.imagen %>" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4"><%= artistasNuevos.nombre %></p>
+                                <p class="subtitle is-6">@<%= artistasNuevos.nombre %></p>
+                            </div>
+                        </div>
+                    
+                        <div class="content">
+                            <%= artistasNuevos.descripcion %> <a>@NewWave</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">10:09 PM - 02 MAR 2023</time>
+                        </div>
+                    </div>
+                </div>
             </div>
-  
-
-
-
+        <% } %>
+    </div>
 <% } else { %>
-    <h1>No hay más de la nueva.</h1>
+    <h1>No hay más artistas de la nueva</h1>
 <% } %>   
-
-

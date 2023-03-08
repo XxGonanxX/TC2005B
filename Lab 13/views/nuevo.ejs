@@ -1,0 +1,16 @@
+<%- include('includes/head.ejs') %>
+
+<h1 class="title">Registrar nuevo artista</h1>
+
+<form action="/nuevo/nuevo" method="POST">
+
+    <label for="nombre">Nombre:</label>
+    <input required name="nombre" id="nombre" class="input is-rounded" type="text" placeholder="Lit Killah">
+    <br><br>
+    <br><br>
+    <label for="descripcion">Descripcion:</label>
+    <input name="descripcion" id="descripcion" class="input is-rounded" type="text" placeholder="Lit Killeh">
+    <br><br>
+    <input class="button is-rounded is-success" type="submit" value="Registrar">
+
+</form>
