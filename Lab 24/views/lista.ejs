@@ -1,0 +1,155 @@
+<%- include('includes/head.ejs') %>
+
+<h1 class="title">Perros registrados</h1>
+
+<% if (privilegios.indexOf('crear_perros') >= 0) { %>
+    <a href="/perros/nuevo" class="button is-link is-rounded">Registrar perro</a>
+<% } %>
+
+<br><br>
+
+<% if (mensaje != '') { %>
+    <div class="notification is-info is-light">
+        <%= mensaje %>
+    </div>
+<% } %>
+
+<label for="buscar">Buscar: </label>
+<input class="input is-medium" type="text" name="buscar" id="buscar">
+<br><br>
+
+<div id="resultados">
+<% if (razas.length > 0) { %>
+    <div class="columns">
+        <% let columns = 0; %>
+        <% for (let raza of razas) { %>
+            <% if (columns % 4 == 0) { %>
+    </div>
+    <div class="columns">
+            <% } %>
+            <% columns++; %>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="/uploads/<%= raza.imagen %>" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="/uploads/<%= raza.imagen %>" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4"><%= raza.raza %></p>
+                                <p class="subtitle is-6">@<%= raza.nombre %></p>
+                            </div>
+                        </div>
+                    
+                        <div class="content">
+                            <%= raza.descripcion %> <a><%= raza.handle %></a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="<%= raza.created_at %>"><%= raza.created_at %></time>
+                            <% if (privilegios.indexOf('crear_perros') >= 0) { %>
+                                <br><br>
+                                <a href="/perros/editar/<%= raza.id %>" class="button is-primary is-rounded">Editar</a>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+<% } else { %>
+    <h1>No hay perros registrados</h1>
+<% } %>   
+</div>
+
+<% if (ultimo_perro != '') { %>
+    <div class="notification is-link is-light">
+        Último perro agregado: <%= ultimo_perro %>
+    </div>
+<% } %>
+
+<% if (privilegios.indexOf('crear_perros') >= 0) { %>
+    <a href="/perros/nuevo" class="button is-link is-rounded">Registrar perro</a>
+<% } %>
+
+<script>
+    document.getElementById("buscar").onkeyup = () => {
+        //función que manda la petición asíncrona
+        const valor_busqueda = document.getElementById("buscar").value;
+
+        console.log(valor_busqueda);
+
+        fetch('/perros/buscar/' + valor_busqueda, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then(result => {
+            return result.json(); //Regresa otra promesa
+        }).then(data => {
+            //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+            console.log(data.perros);
+            let respuesta = "";
+            if (data.perros.length > 0) { 
+                respuesta += '<div class="columns">';
+                let columns = 0;
+                for (let raza of data.perros) { 
+                    if (columns % 4 == 0) {
+                        respuesta += '</div>';
+                        respuesta += '<div class="columns">';
+                    }
+                    columns++;
+                    respuesta += '<div class="column">';
+                        respuesta += '<div class="card">';
+                            respuesta += '<div class="card-image">';
+                                respuesta += '<figure class="image is-4by3">';
+                                    respuesta += '<img src="/uploads/' + raza.imagen +'" alt="Placeholder image">';
+                                respuesta += '</figure>';
+                            respuesta += '</div>';
+                            respuesta += '<div class="card-content">';
+                                respuesta += '<div class="media">';
+                                    respuesta += '<div class="media-left">';
+                                        respuesta += '<figure class="image is-48x48">';
+                                            respuesta += '<img src="/uploads/' + raza.imagen + '" alt="Placeholder image">';
+                                        respuesta += '</figure>';
+                                    respuesta += '</div>';
+                                    respuesta += '<div class="media-content">';
+                                        respuesta += '<p class="title is-4">' + raza.raza + '</p>';
+                                        respuesta += '<p class="subtitle is-6">@' + raza.nombre + '</p>';
+                                    respuesta += '</div>';
+                                respuesta += '</div>';
+                            
+                                respuesta += '<div class="content">';
+                                    respuesta += raza.descripcion + '<a>' + raza.handle + '</a>.';
+                                    respuesta += '<a href="#">#css</a> <a href="#">#responsive</a>';
+                                    respuesta += '<br>';
+                                    respuesta += '<time datetime="' + raza.created_at + '">' + raza.created_at + '</time>';
+                                    //if (privilegios.indexOf('crear_perros') >= 0) { 
+                                    //    <br><br>
+                                    //    <a href="/perros/editar/ raza.id " class="button is-primary is-rounded">Editar</a>
+                                    //} 
+                                respuesta += '</div>';
+                            respuesta += '</div>';
+                        respuesta += '</div>';
+                    respuesta += '</div>';
+                } 
+            respuesta += '</div>';
+            } else { 
+                respuesta += '<h1>No hay perros registrados</h1>';
+            }   
+
+            document.getElementById("resultados").innerHTML = respuesta;
+
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+</script>
+
+<%- include('includes/foot.ejs') %>
