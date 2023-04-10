@@ -6,7 +6,6 @@
     <a href="/perros/nuevo" class="button is-link is-rounded">Registrar perro</a>
 <% } %>
 <br><br>
-
 <% if (mensaje != '') { %>
     <div class="notification is-info is-light">
         <%= mensaje %>
@@ -76,6 +75,34 @@
 <% if (privilegios.indexOf('crear_perros') >= 0) { %>
     <a href="/perros/nuevo" class="button is-link is-rounded">Registrar perro</a>
 <% } %>
+
+<div style="display: flex; justify-content: center;">
+    <h2>Una frase inspiradora de la gran serie "Rompiendo el Mal" (Breaking Bad)</h2>
+    </div>
+        <div id="ContenedorQuote">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <p id="quote" style="font-size: 24px;"></p>
+                <p id="author" style="font-size: 18px; margin-top: 10px;"></p>
+            </div>
+        </div>
+        <br>
+    <div style="display: flex; justify-content: center;">
+    <button onclick="NuevaQuote()" type="button" class="button is-success is-rounded">Actualizar quote :)</button>
+    </div>
+    <br>
+    <style>
+        #ContenedorQuote{
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        height: 300px;
+        border: 2px solid black;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        }
+    </style>
 
 <script>
     document.getElementById("buscar").onkeyup = () => {
@@ -149,6 +176,36 @@
             console.log(err);
         });
     }
+    fetch('https://api.breakingbadquotes.xyz/v1/quotes', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+    }
+    }).then(result => {
+        return result.json();
+    }).then(data => {
+        const quote = data[0].quote;
+        const author = data[0].author;
+        document.getElementById('quote').innerHTML = quote;
+        document.getElementById('author').innerHTML = author;
+    })
+    function NuevaQuote(){
+        fetch('https://api.breakingbadquotes.xyz/v1/quotes', {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+        }
+        }).then(result => {
+            return result.json();
+        }).then(data => {
+            const quote = data[0].quote;
+            const author = data[0].author;
+            document.getElementById('quote').innerHTML = quote;
+            document.getElementById('author').innerHTML = author;
+    })
+    }
+
+
 </script>
 
 <%- include('includes/foot.ejs') %>
