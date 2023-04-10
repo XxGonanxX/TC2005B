@@ -17,8 +17,31 @@
     <label for="password">Contraseña:</label>
     <input name="password" id="password" class="input is-rounded" type="password">
     <br><br>
-    <input class="button is-rounded is-success" type="submit" value="Entrar">
-
+    <div style="display: flex; justify-content: center;">
+        <input class="button is-rounded is-success" type="submit" value="Entrar"> <br> <br>
+    </div>
 </form>
+
+<div id="ContenedorQuote">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <p>Cuatro o cinco momentos es lo que se necesita para ser un héroe. Todos creen que es un trabajo de tiempo completo. Que despiertas, te lavas los dientes, vas a trabajar como héroe. No es verdad. En la vida, solo hay cuatro o cinco momentos que en verdad importan. Momentos en los que se te presenta una decisión. De hacer un sacrificio, superar una debilidad, salvar a un amigo, perdonarle la vida a un enemigo. En esos momentos nada más importa. </p>
+        <p style="font-size: 12px;">Coloso</p>
+    </div>
+    <br>
+</div>
+
+<style>
+    #ContenedorQuote{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    height: 200px;
+    border: 5px solid lightblue;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    }
+</style>
 
 <%- include('includes/foot.ejs') %>
