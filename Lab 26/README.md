@@ -31,4 +31,4 @@ npm start
 
 ### Who do I talk to? ###
 
-* Eduardo Juárez edjuarezp@tec.mx
+* Alan Patricio González Bernal A01067546@tec.mx
